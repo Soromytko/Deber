@@ -1,0 +1,16 @@
+#include <fstream>
+#include <iostream>
+#include <filesystem>
+namespace fs = std::filesystem;
+
+int main()
+{
+    std::string path("D:/GitHub/Deber");
+    std::string ext(".cpp");
+    for (auto &p : fs::recursive_directory_iterator(path))
+    {
+        if (p.path().extension() == ext)
+            std::cout << p.path().stem().string() << '\n';
+    }
+    return 0;
+}

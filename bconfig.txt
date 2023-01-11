@@ -1,0 +1,8 @@
+icom:set[projectName, hello]
+icom:set[mainTool, g++]
+icom:set[rootPath, D:\GitHub\Deber]
+icom:set[binPath, \bin]
+icom:createDir[D:\GitHub\Deber\eee]
+icom:set[include, D:\GitHub\Deber\Source]
+                       
+icom:do[]

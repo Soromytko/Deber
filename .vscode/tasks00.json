@@ -1,0 +1,51 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "Assembling",
+			"command": "D:\\msys64\\mingw64\\bin\\g++.exe",
+			"args": [
+				"-I",
+				"D:\\GitHub\\Deber\\Source",
+
+				"-fdiagnostics-color=always",
+				"-g",
+				"${workspaceFolder}\\*.cpp",
+				//g++ -g $(find RootFolderName -type f -iregex ".*\.cpp") -o OutputName
+				//"${workspaceFolder}\\print\\*.cpp",
+				//"${file}",
+				"-o",
+				//"${fileDirname}\\${fileBasenameNoExtension}.exe"
+				//"${workspaceFolder}\\bin\\${fileBasenameNoExtension}.exe"
+				"${workspaceFolder}\\bin\\Debug\\${workspaceFolderBasename}"
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build",
+			"detail": "компилятор: D:\\msys64\\mingw64\\bin\\Debug\\g++.exe"
+		},
+		{
+			"type": "shell",
+			"label": "CreatingDirectories",
+			"windows":
+			{
+				"command": "cmd",
+				"args": ["/C", "if not exist ${workspaceFolder}\\bin\\Debug mkdir ${workspaceFolder}\\bin\\Debug"]
+			},
+			"group": "build",
+			"detail": "Directory: \\bin\\Debug"
+		},
+		{
+			"label": "Launching",
+			"dependsOn": [
+				"CreatingDirectories",
+				"Assembling"
+			]
+		}
+	]
+}

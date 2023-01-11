@@ -1,0 +1,40 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "Assembling",
+			//"command": "Builder",
+			"command": "Builder",
+			"args": [
+                "${workspaceFolder}\\bconfig.txt"
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build",
+			"detail": "компилятор: D:\\msys64\\mingw64\\bin\\Debug\\g++.exe"
+		},
+		{
+			"type": "shell",
+			"label": "CreatingDirectories",
+			"windows":
+			{
+				"command": "cmd",
+				"args": ["/C", "if not exist ${workspaceFolder}\\bin\\Debug mkdir ${workspaceFolder}\\bin\\Debug"]
+			},
+			"group": "build",
+			"detail": "Directory: \\bin\\Debug"
+		},
+		{
+			"label": "Launching",
+			"dependsOn": [
+				"CreatingDirectories",
+				"Assembling"
+			]
+		}
+	]
+}
